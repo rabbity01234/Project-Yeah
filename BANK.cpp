@@ -61,7 +61,7 @@ for(int i=0;i<morop.size();i++){
 if(morop=="YES"){
 cout << "What your option: Please Select number";
 string opt;
-cin opt;
+cin >>opt ;
 cout << " in put yor bank's interest : ";
 cin >> in ;
 cout << "your all money in bank is : "<<sum*(100.00+in)/100.00<<endl;
