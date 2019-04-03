@@ -30,7 +30,11 @@ int main(){
     string Allinf;
     cout << "input your saving :  ";
     getline(cin,Allinf);
-    upper(Allinf);
+    for(int i=0;i<Allinf.size();i++){
+    Allinf[i]=toupper(Allinf[i]);
+    }
+   // upper(Allinf);
+   // cout<<Allinf;
     while(Allinf !="STOP"){
     sscanf(Allinf.c_str(),format,binfr,&sm);
     
@@ -45,11 +49,25 @@ int main(){
 	}
 	 cout <<"Your all money: " <<sum<<endl;
 	 
+cout << " Do you want more option";
+string morop;
+cin >> morop;
+for(int i=0;i<morop.size();i++){
+    morop[i]=toupper(morop[i]);
+    }
+    
+    while(morop!="NO"){
+	}
+if(morop=="YES"){
+cout << "What your option: Please Select number";
+string opt;
+cin opt;
 cout << " in put yor bank's interest : ";
 cin >> in ;
 cout << "your all money in bank is : "<<sum*(100.00+in)/100.00<<endl;
-
-
+cout << " Do you want more option";
+cin >> morop;
+}
 cout <<"Are you Loan Bank's money : "<<endl;
 
     return 0;
