@@ -49,6 +49,26 @@ int findingnemo(string x, vector<string> y)
         }
     }
 }
+int findingnemoint(int x, vector<int> y)
+{
+     for (int i = 0; i < y.size(); i++)
+    {
+        if (x == y[i])
+        {
+            return i;
+        }
+    }
+}
+int findingnemodeposit(float x, vector<float> y)
+{
+     for (int i = 0; i < y.size(); i++)
+    {
+        if (x == y[i])
+        {
+            return i;
+        }
+    }
+}
 int searchingfrominf(vector<string> inf)
 {
     string searching;
@@ -60,6 +80,26 @@ int searchingfrominf(vector<string> inf)
     }
     return findingnemo(searching, inf);
 }
+int searchingfromdate(vector<int> day)
+{
+    int searching;
+    cout << "input day of deposit: ";
+    cin >> searching;
+    return findingnemoint(searching, day);
+
+}
+int searchingfromdeposit(vector<float> deposit)
+{
+    float searching;
+    cout<<"Input amount of deposit: ";
+    cin >> searching;
+    return findingnemodeposit(searching,deposit);
+}
+
+
+
+
+
 
 int main()
 {
@@ -73,6 +113,10 @@ int main()
     {
         cout << "Date of Record mm dd yyyy: ";
         cin >> rec.month >> rec.day >> rec.year;
+        if (rec.month == 00 and rec.day == 00 and rec.year == 0000)
+        {
+            break;
+        }
         cin.ignore();
         cout << "\n"
              << "information : ";
@@ -97,11 +141,43 @@ int main()
         information.y.push_back(rec.year);
         information.depo.push_back(information.deposit);
     }
+    int choice;
+    cout << "Do you want to find something";
 
-    cout << "Find from inf ?"
+    cout << "Find from inf ?  [1]"
          << "\n";
-    tariff = searchingfrominf(information.recinfor);
-    cout << information.m[tariff] << "/" << information.d[tariff] << "/" << information.y[tariff] << " : " << information.recinfor[tariff] << " "
-         << information.depo[tariff]<<"Bath";
+
+    cout << "Find from date ? [2]"
+         << "\n";
+
+    cout << "Find from deposit ? [3]"
+         << "\n";
+
+    cout << "INPUT : ";
+    cin >> choice;
+
+    cin.ignore();
+
+    if (choice = 1)
+    {
+        tariff = searchingfrominf(information.recinfor);
+        cout << information.m[tariff] << "/" << information.d[tariff] << "/" << information.y[tariff] << " : " << information.recinfor[tariff] << " "
+             << information.depo[tariff] << " Bath";
+    }
+
+   else  if (choice = 2)
+    {
+        tariff=searchingfromdate(information.d);
+        cout << information.m[tariff] << "/" << information.d[tariff] << "/" << information.y[tariff] << " : " << information.recinfor[tariff] << " "
+             << information.depo[tariff] << " Bath";
+        
+    }
+    else if (choice = 3)
+    {
+        tariff=searchingfromdeposit(information.depo);
+        cout << information.m[tariff] << "/" << information.d[tariff] << "/" << information.y[tariff] << " : " << information.recinfor[tariff] << " "
+             << information.depo[tariff] << " Bath";
+
+    }
     return 0;
 }
